@@ -1,0 +1,46 @@
+@font-face {
+    font-family: "Nunito_black";
+    src: local("Nunito_black"), url(/fonts/NunitoSans-Black.ttf) format("woff");
+}
+
+@font-face {
+    font-family: "Nunito_bold";
+    src: local("Nunito_bold"), url(/fonts/NunitoSans-Bold.ttf) format("woff");
+}
+
+@font-face {
+    font-family: "Nunito_light";
+    src: local("Nunito_light"), url(/fonts/NunitoSans-Light.ttf) format("woff");
+}
+
+@font-face {
+    font-family: "Nunito_regular";
+    src: local("Nunito_regular"), url(/fonts/NunitoSans-Regular.ttf) format("woff");
+}
+
+@font-face {
+    font-family: "Nunito_semibold";
+    src: local("Nunito_semibold"), url(/fonts/NunitoSans-SemiBold.ttf) format("woff");
+}
+
+
+.font_black {
+    font-family: Nunito_black;
+}
+
+.font_bold {
+    font-family: Nunito_bold;
+}
+
+.font_light {
+    font-family: Nunito_light;
+}
+
+.font_regular {
+    font-family: Nunito_regular;
+}
+
+.font_semibold {
+    font-family: Nunito_semibold;
+}
+  
