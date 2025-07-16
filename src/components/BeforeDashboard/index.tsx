@@ -41,6 +41,7 @@ const BeforeDashboard: React.FC = () => {
         </li>
         <li>Don't forget to update your full name in the Users settings</li>
         <li>Keep iterating and exploring</li>
+        <li>Have anything you'd like us to fix or implement? <a href="https://forms.gle/dLpVCKMnYFfAiwkZ9" target='_blank'>Fill this form!</a></li>
       </ul>
     </div>
   )

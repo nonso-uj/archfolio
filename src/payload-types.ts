@@ -196,6 +196,8 @@ export interface Slug {
   createdAt: string;
 }
 /**
+ * Image size maximum 1mb
+ *
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "media".
  */

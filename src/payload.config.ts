@@ -71,6 +71,11 @@ export default buildConfig({
   //   },
   // }),
   sharp,
+  upload: {
+    limits: {
+      fileSize: 1000000, // 5MB, written in bytes
+    },
+  },
   plugins: [
     multiTenantPlugin<Config>({
       tenantsSlug: 'slug',

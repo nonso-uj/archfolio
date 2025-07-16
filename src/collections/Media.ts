@@ -5,6 +5,9 @@ import { authenticated } from '../access/authenticated'
 
 export const Media: CollectionConfig = {
   slug: 'media',
+  admin: {
+    description: 'Image size maximum 1mb'
+  },
   access: {
     create: authenticated,
     delete: authenticated,
@@ -16,9 +19,11 @@ export const Media: CollectionConfig = {
       name: 'alt',
       type: 'text',
       //required: true,
-    }
+    },
   ],
-  upload: true,
+  upload: {
+    mimeTypes: ['image/*'],
+  },
   hooks: {
     beforeOperation: [
       ({ req, operation }) => {
