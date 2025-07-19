@@ -148,8 +148,8 @@ const Contact = ({ details, slug }: { details: any; slug: string }) => {
         </div>
 
         <div className="flex flex-col items-start justify-between gap-y-8 w-full lg:w-2/3 text-neutral-400 px-3 lg:px-10 z-20">
-          <div className="w-full flex flex-col md:flex-row gap-x-0 md:gap-x-3 lg:gap-x-0 items-end justify-between">
-            <div className="grid w-full max-w-sm items-center gap-y-5">
+          <div className="w-full flex flex-col md:flex-row gap-x-0 md:gap-x-3 items-end justify-between">
+            <div className="grid w-full lg:max-w-sm items-center gap-y-5">
               <Label htmlFor="name" className="text-lg font-semibold">
                 Name *
               </Label>
@@ -166,7 +166,7 @@ const Contact = ({ details, slug }: { details: any; slug: string }) => {
                 {touched.name && errors.name ? errors.name : ' '}
               </div>
             </div>
-            <div className="grid w-full max-w-sm items-center gap-y-5">
+            <div className="grid w-full lg:max-w-sm items-center gap-y-5">
               <Label htmlFor="email" className="text-lg font-semibold">
                 Email address *
               </Label>
