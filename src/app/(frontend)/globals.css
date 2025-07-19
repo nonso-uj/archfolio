@@ -469,8 +469,7 @@ body {
   }
 }
 
-
-/* From Uiverse.io by Nawsome */ 
+/* From Uiverse.io by Nawsome */
 .banter-loader {
   position: absolute;
   left: 50%;
@@ -490,7 +489,7 @@ body {
 }
 
 .banter-loader__box:before {
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
   top: 0;
@@ -504,7 +503,8 @@ body {
   margin-bottom: 6px;
 }
 
-.banter-loader__box:nth-child(1):before, .banter-loader__box:nth-child(4):before {
+.banter-loader__box:nth-child(1):before,
+.banter-loader__box:nth-child(4):before {
   margin-left: 26px;
 }
 
@@ -966,7 +966,6 @@ body {
   animation: moveBox-9 4s infinite;
 }
 
-
-.homeImage{
+.homeImage {
   background-color: #393838;
 }

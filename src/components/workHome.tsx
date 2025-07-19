@@ -1,7 +1,7 @@
 'use client'
 
 import { routesFunc } from '@/utilities/routes'
-import Link from 'next/link'
+import { Link } from 'react-transition-progress/next'
 import React, { useRef, useState } from 'react'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -40,13 +40,13 @@ export const WorkHome = ({ work, i }: any) => {
         onMouseMove={(e) => cursorImage(e)}
       >
         <p
-          className={`justify-self-start text-2xl lg:text-6xl max-w-md font-semibold transition-all ease-in-out duration-300 ${hovered && 'text-gray-300'} font_bold uppercase [break-anywhere]`}
+          className={`justify-self-start text-2xl lg:text-6xl max-w-md font-semibold transition-all ease-in-out duration-300 ${hovered && 'text-gray-300'} font_bold uppercase [break-anywhere] text-black`}
           style={{ overflowWrap: 'anywhere' }}
         >
           {work.title}
         </p>
         <p
-          className={`justify-self-end text-lg font-regular transition-all ease-in-out duration-300 ${hovered && 'text-gray-300'} font_semibold`}
+          className={`justify-self-end text-lg font-regular transition-all ease-in-out duration-300 ${hovered && 'text-gray-300'} font_semibold text-black`}
         >
           {work.role}
         </p>

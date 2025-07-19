@@ -144,7 +144,7 @@ export default function Signup() {
                 <li className="ball"></li>
               </div>
             ) : (
-              <>Sign-up</>
+              <span className='text-black'>Sign-up</span>
             )}
           </button>
         </form>

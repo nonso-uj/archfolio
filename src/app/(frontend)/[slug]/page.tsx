@@ -1,5 +1,5 @@
 import React, { cache } from 'react'
-import Link from 'next/link'
+import { Link } from 'react-transition-progress/next'
 
 import { NavBar } from '@/components/Nav'
 import { VelocityText } from '@/components/scroll'
@@ -31,7 +31,7 @@ export default async function HomePageView({
   const pageBySlug = await querySlug(slug || '')
 
   if (!pageBySlug) {
-    notFound();
+    notFound()
   }
 
   const { ABOUT_PAGE, WORKS_PAGE } = routesFunc(slug || '')
@@ -47,7 +47,7 @@ export default async function HomePageView({
   }: any = pageBySlug
 
   return (
-    <div>
+    <div className='bg-white'>
       {/* HERO SECTION */}
       <div
         className="relative homeImage h-screen w-full m-0 flex flex-col justify-between items-stretch"
@@ -73,7 +73,7 @@ export default async function HomePageView({
         <div className="w-full p-0 m-0 flex flex-col items-center justify-between gap-y-8">
           <div className="flex flex-col lg:flex-row items-center justify-between py-0 my-0 w-fit mx-3 lg:mx-20">
             <div className="w-full lg:w-8/12">
-              <p className="text-xl lg:text-2xl font-normal tracking-wide leading-relaxed mx-1 lg:mx-5 my-5 font_regular">
+              <p className="text-xl lg:text-2xl font-normal tracking-wide leading-relaxed mx-1 lg:mx-5 my-5 font_regular text-black">
                 {aboutText}
               </p>
             </div>
@@ -140,11 +140,7 @@ export default async function HomePageView({
   )
 }
 
-
-
 export const getUser = cache(async (slug: string) => queryUser(slug))
-
-
 
 export async function generateMetadata({
   params,
@@ -158,16 +154,16 @@ export async function generateMetadata({
   const user = await getUser(slug)
   const fullName = user.fullName ? user.fullName + ' || ' : ''
 
-//   const user.fullName = ''
+  //   const user.fullName = ''
 
-  console.log('metadata===', slug, user )
-  
+  console.log('metadata===', slug, user)
+
   const pageTitle = fullName + 'Archifolio'
   const pageDescription = user.fullName
-      ? 'Explore the projects of' + fullName + 'on Archfolio'
-      : 'Explore projects on Archfolio'
-  
-  console.log('pageTitle===', pageTitle )
+    ? 'Explore the projects of' + fullName + 'on Archfolio'
+    : 'Explore projects on Archfolio'
+
+  console.log('pageTitle===', pageTitle)
   return {
     description: pageDescription,
     title: pageTitle,

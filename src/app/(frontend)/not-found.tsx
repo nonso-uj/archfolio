@@ -1,12 +1,12 @@
 'use client'
 
 import { useParams } from 'next/navigation'
-import Link from 'next/link'
+import { Link } from 'react-transition-progress/next'
 import { routesFunc } from '@/utilities/routes'
 
 export default function NotFound() {
   const params = useParams()
-  const { slug='' } = params
+  const { slug = '' } = params
 
   // @ts-ignore
   const { HOME_PAGE } = routesFunc(slug)

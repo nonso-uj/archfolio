@@ -5,7 +5,7 @@ import { useState } from 'react'
 import { AnimatePresence, motion, Variants } from 'motion/react'
 import { MagneticFramer } from '../framer'
 import { Popover, PopoverButton, PopoverPanel } from '@headlessui/react'
-import Link from 'next/link'
+import { Link } from 'react-transition-progress/next'
 import { routesFunc } from '@/utilities/routes'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -143,7 +143,7 @@ export const NavBar = ({ extraClasses, userSlug }: { extraClasses: string; userS
         <MagneticFramer
           showDots={true}
           dotsColor={
-           [HOME_PAGE, ABOUT_PAGE, CONTACT_PAGE, WORKS_PAGE].includes(pathname)
+            [HOME_PAGE, ABOUT_PAGE, CONTACT_PAGE, WORKS_PAGE].includes(pathname)
               ? 'text-white'
               : 'text-black'
           }

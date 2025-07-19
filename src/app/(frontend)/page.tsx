@@ -1,59 +1,76 @@
-import { headers as getHeaders } from 'next/headers.js'
 import Image from 'next/image'
-import { getPayload } from 'payload'
-import React from 'react'
-import { fileURLToPath } from 'url'
+import { ThemeProvider } from 'next-themes'
+import Header from '@/components/landing/Header'
+import Hero from '@/components/landing/Hero'
+import Features from '@/components/landing/Features'
+import Section from '@/components/landing/Section'
+import Footer from '@/components/landing/Footer'
+import Customers from '@/components/landing/Customers'
+import Accordion from '@/components/landing/Accordion'
+import Reviews from '@/components/landing/Reviews'
+import Download from '@/components/landing/Download'
 
-import config from '@/payload.config'
-import './globals.css'
-
-export default async function HomePage() {
-  const headers = await getHeaders()
-  const payloadConfig = await config
-  const payload = await getPayload({ config: payloadConfig })
-  const { user } = await payload.auth({ headers })
-
-  const fileURL = `vscode://file/${fileURLToPath(import.meta.url)}`
-
+export default function Page() {
   return (
-    <div className="home">
-      <div className="content">
-        <picture>
-          <source srcSet="https://raw.githubusercontent.com/payloadcms/payload/main/packages/ui/src/assets/payload-favicon.svg" />
-          <Image
-            alt="Payload Logo"
-            height={65}
-            src="https://raw.githubusercontent.com/payloadcms/payload/main/packages/ui/src/assets/payload-favicon.svg"
-            width={65}
-          />
-        </picture>
-        {!user && <h1>Welcome to your new project.</h1>}
-        {user && <h1>Welcome back, {user.email}</h1>}
-        <div className="links">
-          <a
-            className="admin"
-            href={payloadConfig.routes.admin}
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Go to admin panel
-          </a>
-          <a
-            className="docs"
-            href="https://payloadcms.com/docs"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Documentation
-          </a>
-        </div>
+    <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+      <div
+        className="flex flex-col min-h-screen bg-white dark:bg-black bg-cover bg-center bg-opacity-10"
+        style={{ backgroundImage: "url('/img/home-bg.png')" }}
+      >
+        <Header />
+        <main>
+          <Hero />
+
+          <div className="bg-gray-50 dark:bg-black w-full lg:container mx-auto mb-20 lg:rounded-3xl shadow-2xl shadow-white/40 border-2 border-black">
+            <Section
+              leftHalf={<Accordion />}
+              rightHalf={
+                <div className="flex flex-col justify-end">
+                  <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-gray-900 dark:text-white mb-4">
+                    How It Works
+                  </h2>
+                  <p className="text-xl font-light">
+                    Create your portfolio in minutes. Just sign up, add your work, and share your
+                    custom site, it's that simple.
+                  </p>
+                </div>
+              }
+            />
+          </div>
+
+          <Features />
+
+          {/* <Customers /> */}
+
+          <Reviews />
+
+          {/* <Section
+            leftHalf={
+              <>
+                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-gray-900 dark:text-white mb-4">
+                  Effortlessly highlight the key features of your app
+                </h2>
+                <p className="text-xl font-light">
+                  Our app makes it easy to showcase your key features. With customizable sections,
+                  you can highlight the most important aspects of your product. More to come.
+                </p>
+              </>
+            }
+            rightHalf={
+              <Image
+                src={'/products/phone.png'}
+                alt="section-image"
+                width={500}
+                height={100}
+                className="w-1/2 h-auto"
+              />
+            }
+          /> */}
+
+          <Download />
+        </main>
+        <Footer />
       </div>
-      <div className="footer">
-        <p>Update this page by editing</p>
-        <a className="codeLink" href={fileURL}>
-          <code>app/(frontend)/page.tsx</code>
-        </a>
-      </div>
-    </div>
+    </ThemeProvider>
   )
 }
