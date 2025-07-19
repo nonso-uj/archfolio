@@ -1,4 +1,3 @@
-````markdown
 # Archfolio ✨  
 **Create and manage your own portfolio site in minutes. Built for architecture students, creatives, and anyone who wants to showcase their work — effortlessly.**
 
