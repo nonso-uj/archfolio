@@ -1,67 +1,151 @@
-# Payload Blank Template
+````markdown
+# Archfolio ✨  
+**Create and manage your own portfolio site in minutes. Built for architecture students, creatives, and anyone who wants to showcase their work — effortlessly.**
 
-This template comes configured with the bare minimum to get started on anything you need.
+![Archfolio Hero](./public/img/admin-screenshot.webp)
 
-## Quick start
+---
 
-This template can be deployed directly from our Cloud hosting and it will setup MongoDB and cloud S3 object storage for media.
+## 🚀 Overview
 
-## Quick Start - local setup
+**Archfolio** is a dynamic web-based platform designed to help students and design professionals create personalized portfolio websites — no coding required. With a clean dashboard, rich content editor, and mobile-optimized layouts, users can update their site in real-time and share a custom link with recruiters, collaborators, or the world.
 
-To spin up this template locally, follow these steps:
+This is a **full-stack web application** built with [Payload CMS 3.0](https://payloadcms.com), [Next.js 15](https://nextjs.org), and Tailwind CSS.
 
-### Clone
+---
 
-After you click the `Deploy` button above, you'll want to have standalone copy of this repo on your machine. If you've already cloned this repo, skip to [Development](#development).
+## 🧠 Features
 
-### Development
+- 🌐 **Instant Portfolio Generation** — Just sign up, fill in your details, and your portfolio is live.
+- 🖼️ **Project & Bio Management** — Add and update work, education, and personal info with ease.
+- 📱 **Responsive & Mobile-Ready** — Designed to look great on every screen.
+- 🔐 **Secure Architecture** — Built using modern security practices; your data stays private.
+- 🛠️ **Powered by Payload CMS** — Headless CMS with a custom multi-tenant backend.
+- ☁️ **Image Hosting with Cloudinary** — Seamless media upload and rendering.
+- ✨ **Beautiful UI/UX** — Built with TailwindCSS, Framer Motion, and a focus on clean design.
+- 💬 **Email Integration** — Uses Nodemailer for user notifications.
 
-1. First [clone the repo](#clone) if you have not done so already
-2. `cd my-project && cp .env.example .env` to copy the example environment variables. You'll need to add the `MONGODB_URI` from your Cloud project to your `.env` if you want to use S3 storage and the MongoDB database that was created for you.
+---
 
-3. `pnpm install && pnpm dev` to install dependencies and start the dev server
-4. open `http://localhost:3000` to open the app in your browser
+## 🏗️ Tech Stack
 
-That's it! Changes made in `./src` will be reflected in your app. Follow the on-screen instructions to login and create your first admin user. Then check out [Production](#production) once you're ready to build and serve your app, and [Deployment](#deployment) when you're ready to go live.
+- **Frontend:** React 19, Next.js 15, Tailwind CSS, Framer Motion  
+- **Backend:** Payload CMS 3.0 (Multi-Tenant Enabled), MongoDB  
+- **UI Libraries:** shadcn/ui, Lucide React, Radix UI  
+- **Authentication:** Payload Auth  
+- **Email:** Gmail API, Nodemailer
+- **Hosting:** Vercel
+- **Testing:** Playwright, Vitest  
+- **Build Tools:** Vite, PostCSS, ESLint, Prettier  
+- **Others:** Cloudinary, dotenv, Yup, Formik, next-themes
 
-#### Docker (Optional)
+---
 
-If you prefer to use Docker for local development instead of a local MongoDB instance, the provided docker-compose.yml file can be used.
+## 📦 Installation
 
-To do so, follow these steps:
+```bash
+git clone https://github.com/nonso-uj/archfolio.git
+cd archfolio
+pnpm install
+````
 
-- Modify the `MONGODB_URI` in your `.env` file to `mongodb://127.0.0.1/<dbname>`
-- Modify the `docker-compose.yml` file's `MONGODB_URI` to match the above `<dbname>`
-- Run `docker-compose up` to start the database, optionally pass `-d` to run in the background.
+---
 
-## How it works
+## 🧪 Development
 
-The Payload config is tailored specifically to the needs of most websites. It is pre-configured in the following ways:
+### Start Dev Server:
 
-### Collections
+```bash
+pnpm dev
+```
 
-See the [Collections](https://payloadcms.com/docs/configuration/collections) docs for details on how to extend this functionality.
+### Safe Dev (clears `.next` cache first):
 
-- #### Users (Authentication)
+```bash
+pnpm devsafe
+```
 
-  Users are auth-enabled collections that have access to the admin panel.
+### Generate Payload Types:
 
-  For additional help, see the official [Auth Example](https://github.com/payloadcms/payload/tree/main/examples/auth) or the [Authentication](https://payloadcms.com/docs/authentication/overview#authentication-overview) docs.
+```bash
+pnpm generate:types
+```
 
-- #### Media
+### Generate Payload Importmap:
 
-  This is the uploads enabled collection. It features pre-configured sizes, focal point and manual resizing to help you manage your pictures.
+```bash
+pnpm generate:importmap
+```
 
-### Docker
+### Run Tests:
 
-Alternatively, you can use [Docker](https://www.docker.com) to spin up this template locally. To do so, follow these steps:
+```bash
+pnpm test
+```
 
-1. Follow [steps 1 and 2 from above](#development), the docker-compose file will automatically use the `.env` file in your project root
-1. Next run `docker-compose up`
-1. Follow [steps 4 and 5 from above](#development) to login and create your first admin user
+---
 
-That's it! The Docker instance will help you get up and running quickly while also standardizing the development environment across your teams.
+## 🧩 Scripts
 
-## Questions
+| Command               | Description                            |
+| --------------------- | -------------------------------------- |
+| `pnpm dev`            | Start the development server           |
+| `pnpm devsafe`        | Clean `.next` folder before dev        |
+| `pnpm build`          | Build the production app               |
+| `pnpm start`          | Start the production server            |
+| `pnpm generate:types` | Generate Payload TypeScript types      |
+| `pnpm lint`           | Run linter                             |
+| `pnpm test`           | Run all tests (e2e + unit)             |
+| `pnpm test:int`       | Run unit/integration tests with Vitest |
+| `pnpm test:e2e`       | Run end-to-end tests with Playwright   |
 
-If you have any issues or questions, reach out to us on [Discord](https://discord.com/invite/payload) or start a [GitHub discussion](https://github.com/payloadcms/payload/discussions).
+---
+
+## 🛡️ Security
+
+* Payload uses encrypted sessions and secure token handling.
+* MongoDB connections use `dotenv`-based environment variables.
+* Payload access control is configured per collection.
+* Multi-tenant support ensures user data is isolated and protected.
+* No public write access to user data endpoints.
+
+---
+
+## 📁 File Structure (Simplified)
+
+```
+/src
+  /app         ← Next.js frontend
+  /cms         ← Payload CMS config
+  /components  ← Reusable UI elements
+  /utils       ← Utility functions
+  /tests       ← Vitest & Playwright
+```
+
+---
+
+## 📄 License
+
+MIT License © \[Your Name]
+You are free to fork, modify, and use as needed.
+
+---
+
+## 🙌 Acknowledgements
+
+* [Payload CMS](https://payloadcms.com)
+* [Next.js](https://nextjs.org)
+* [TailwindCSS](https://tailwindcss.com)
+* [Cloudinary](https://cloudinary.com)
+
+---
+
+## 🌐 Live Demo
+
+> [Archfolio live website](https://archfolio-two.vercel.app)
+
+---
+
+## 👋 Want to contribute or give feedback?
+
+Feel free to [open an issue](https://github.com/nonso-uj/archfolio/issues) or reach out via [LinkedIn](https://www.linkedin.com/in/nonso-uj).
