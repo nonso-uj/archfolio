@@ -11,7 +11,6 @@ type Props = {
 }
 
 export const generatePreviewPath = ({ collection, slug }: Props) => {
-  console.log('sluggg===', slug)
   const encodedParams = new URLSearchParams({
     slug,
     collection,

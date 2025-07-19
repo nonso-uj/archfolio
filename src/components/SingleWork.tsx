@@ -19,7 +19,9 @@ const SingleWork = ({ work }: { work: any }) => {
     <div className="w-full h-full">
       <div className="flex flex-col justify-between w-full h-auto px-5 lg:px-52 pt-5 pb-20">
         <div className="w-full h-fit py-10 text-start">
-          <h1 className="font_semibold uppercase clamp-text">{work.title}</h1>
+          <h1 className="font_semibold uppercase text-6xl lg:text-8xl leading-tight">
+            {work.title}
+          </h1>
         </div>
 
         <div className="grid grid-cols-2 items-start justify-between py-10">
@@ -41,11 +43,7 @@ const SingleWork = ({ work }: { work: any }) => {
           <p className="font_light font-semibold text-xs text-neutral-400">SUMMARY</p>
           <hr className="w-full bg-neutral-300" />
 
-          <RichText
-            className="font_regular"
-            data={work.details}
-            enableGutter={false}
-          />
+          <RichText className="font_regular" data={work.details} enableGutter={false} />
         </div>
       </div>
 
@@ -59,32 +57,36 @@ const SingleWork = ({ work }: { work: any }) => {
             style={{ x }}
             className="flex flex-row items-center justify-between gap-x-10 h-full w-fit mx-0 px-0"
           >
-            {// eslint-disable-next-line @typescript-eslint/no-explicit-any
-            work.images.map((item: any, i: any) => (
-              <div
-                key={i}
-                className="w-full lg:w-[50rem] h-3/4 overflow-hidden flex flex-row items-center justify-center mx-0 px-0"
-              >
-                <motion.img
-                  src={item.image.url}
-                  className="w-full h-full object-cover object-center max-h-[40rem]"
-                />
-              </div>
-            ))}
+            {
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              work.images.map((item: any, i: any) => (
+                <div
+                  key={i}
+                  className="w-full lg:w-[50rem] h-3/4 overflow-hidden flex flex-row items-center justify-center mx-0 px-0"
+                >
+                  <motion.img
+                    src={item.image.url}
+                    className="w-full h-full object-cover object-center max-h-[40rem]"
+                  />
+                </div>
+              ))
+            }
           </motion.div>
         </div>
       </div>
 
       <div className="lg:hidden flex flex-col items-center justify-evenly gap-y-2 w-full h-fit px-0 lg:px-40 py-10 lg:py-36">
-        {// eslint-disable-next-line @typescript-eslint/no-explicit-any
-        work.images.map((item: any, i: any) => (
-          <img
-            key={i}
-            className="w-full object-cover object-center h-full max-h-[40rem]"
-            src={item.image.url}
-            alt=""
-          />
-        ))}
+        {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          work.images.map((item: any, i: any) => (
+            <img
+              key={i}
+              className="w-full object-cover object-center h-full max-h-[40rem]"
+              src={item.image.url}
+              alt=""
+            />
+          ))
+        }
       </div>
     </div>
   )

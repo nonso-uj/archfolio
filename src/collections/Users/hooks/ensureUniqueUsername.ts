@@ -41,7 +41,6 @@ export const ensureUniqueUsername: FieldHook = async ({
 
   if (operation === 'update') {
     const tenantRelation = originalDoc.tenants?.[0]
-    console.log('tenantRelation===', tenantRelation)
     if (tenantRelation) {
       try {
         const updateTenantAttempt = await req.payload.update({
@@ -55,7 +54,6 @@ export const ensureUniqueUsername: FieldHook = async ({
           req,
         })
 
-        console.log('tenant updated===', updateTenantAttempt)
       } catch (error) {
         throw new ValidationError({
           errors: [

@@ -9,7 +9,16 @@ import { Link } from 'react-transition-progress/next'
 import { routesFunc } from '@/utilities/routes'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const NavBar = ({ extraClasses, userSlug }: { extraClasses: string; userSlug: any }) => {
+export const NavBar = ({
+  extraClasses,
+  userSlug,
+  fullName,
+}: {
+  extraClasses: string
+  userSlug: any
+  fullName: string
+}) => {
+  fullName = fullName ? fullName : 'Full Name'
   const [hoverRotate, setHoverRotate] = useState(false)
   const pathname = usePathname()
 
@@ -116,12 +125,16 @@ export const NavBar = ({ extraClasses, userSlug }: { extraClasses: string; userS
                 </g>
               </motion.svg>
 
-              <span className="hidden lg:block">
-                Chinonso Udonne
-                {/* Caleb Ojo */}
-              </span>
+              <span className="hidden lg:block">{fullName}</span>
 
-              <span className="block lg:hidden">C.U</span>
+              <span className="block lg:hidden">
+                {fullName
+                  .trim()
+                  .split(' ')
+                  .filter(Boolean)
+                  .map((word) => word[0]?.toUpperCase())
+                  .join('.')}
+              </span>
             </motion.p>
           </Link>
         </MagneticFramer>

@@ -20,16 +20,15 @@ export default async function AboutPageView({
   params: Promise<{ slug?: string }>
 }) {
   const params = await paramsPromise
-
   const slug = params?.slug
-
-  // console.log('sluggg===', slug, params)
-
   const pageBySlug = await queryAboutSlug(slug || '')
 
   if (!pageBySlug) {
     notFound()
   }
+
+  const user = await getUser(slug || '')
+  const fullName = user.fullName ? user.fullName : 'Full Name'
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const {
@@ -40,11 +39,10 @@ export default async function AboutPageView({
     contact = CONTACT_DUMMY,
   }: any = pageBySlug
 
-  // console.log('pageBySlug===', pageBySlug, workingExperience)
-
   return (
     <div className="flex flex-col justify-start items-center relative bg-neutral-200 h-auto lg:h-screen w-screen">
       <NavBar
+        fullName={fullName}
         userSlug={slug || ''}
         extraClasses={'px-5 lg:px-14 text-neutral-400 text-base w-full bg-[#111111]'}
       />
@@ -93,7 +91,7 @@ export default async function AboutPageView({
             </h3>
 
             <div className="grid grid-cols-2 grid-flow-rows items-end justify-center gap-y-5 gap-x-5 w-full lg:w-5/6 mx-auto">
-            {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+              {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
               {services.map((item: any, i: number) => (
                 <h5
                   key={i}
@@ -111,7 +109,7 @@ export default async function AboutPageView({
             </h3>
 
             <div className="grid grid-cols-3 items-center justify-center gap-x-2 w-full lg:w-5/6 mx-auto text-nowrap">
-            {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+              {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
               {contact.map((item: any, i: number) => (
                 <a key={i} href={item.link} target="_blank">
                   <p className="font_regular text-base text-neutral-400 hover:text-white hover:text-2xl transition-all duration-300">
@@ -127,8 +125,6 @@ export default async function AboutPageView({
   )
 }
 
-
-
 export async function generateMetadata({
   params,
 }: {
@@ -137,18 +133,14 @@ export async function generateMetadata({
   }>
 }): Promise<Metadata> {
   const { slug } = await params
-  console.log('metadata1===', slug)
   const user = await getUser(slug)
   const fullName = user.fullName ? user.fullName + ' || ' : ''
 
-  console.log('metadata===', slug, user )
-  
   const pageTitle = 'About || ' + fullName + 'Archifolio'
   const pageDescription = user.fullName
-      ? 'Explore the projects of' + fullName + 'on Archfolio'
-      : 'Explore projects on Archfolio'
-  
-  console.log('pageTitle===', pageTitle )
+    ? 'Explore the projects of' + fullName + 'on Archfolio'
+    : 'Explore projects on Archfolio'
+
   return {
     description: pageDescription,
     title: pageTitle,

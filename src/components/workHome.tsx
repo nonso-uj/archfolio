@@ -5,7 +5,7 @@ import { Link } from 'react-transition-progress/next'
 import React, { useRef, useState } from 'react'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const WorkHome = ({ work, i }: any) => {
+export const WorkHome = ({ work, userSlug, i }: any) => {
   const ref = useRef<any>(null)
   const [hovered, setHovered] = useState(false)
 
@@ -23,10 +23,10 @@ export const WorkHome = ({ work, i }: any) => {
     ref.current.style.display = 'none'
   }
 
-  const { WORKS_PAGE } = routesFunc(work?.slug || '')
+  const { WORKS_PAGE } = routesFunc(userSlug || '')
 
   return (
-    <Link href={WORKS_PAGE}>
+    <Link href={WORKS_PAGE + '/' + work.slug}>
       <div
         className={`border-b-2 ${i === 0 && 'border-t-2'} border-gray-200 h-fit w-full grid grid-cols-2 justify-between items-center px-2 lg:px-28 py-14 hover:px-16 cursor-pointer transition-all ease-in-out duration-300`}
         onMouseEnter={(e) => {

@@ -19,8 +19,6 @@ export const revalidatePage: CollectionAfterChangeHook<AboutPage> = async ({
     if (doc._status === 'published') {
       // @ts-ignore
       const path = tenantDoc.name ? `/${tenantDoc.name}/about` : ''
-      console.log('path===', path)
-
       payload.logger.info(`Revalidating page at path: ${path}`)
 
       revalidatePath(path)

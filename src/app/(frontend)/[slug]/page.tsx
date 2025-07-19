@@ -27,12 +27,14 @@ export default async function HomePageView({
 }) {
   const params = await paramsPromise
   const slug = params?.slug
-
   const pageBySlug = await querySlug(slug || '')
 
   if (!pageBySlug) {
     notFound()
   }
+
+  const user = await getUser(slug || '')
+  const fullName = user.fullName ? user.fullName : 'Full Name'
 
   const { ABOUT_PAGE, WORKS_PAGE } = routesFunc(slug || '')
 
@@ -47,7 +49,7 @@ export default async function HomePageView({
   }: any = pageBySlug
 
   return (
-    <div className='bg-white'>
+    <div className="bg-white">
       {/* HERO SECTION */}
       <div
         className="relative homeImage h-screen w-full m-0 flex flex-col justify-between items-stretch"
@@ -60,6 +62,7 @@ export default async function HomePageView({
       >
         <NavBar
           userSlug={slug || ''}
+          fullName={fullName}
           extraClasses={'shrink-0 text-base lg:text-3xl px-5 lg:px-14 text-white'}
         />
 
@@ -114,7 +117,7 @@ export default async function HomePageView({
         <div className="mx-1 lg:mx-20">
           {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
           {topWorks?.map((work: any, i: number) => (
-            <WorkHome key={i} work={work?.topWork || work} i={i} />
+            <WorkHome key={i} userSlug={slug || ''} work={work?.topWork || work} i={i} />
           ))}
         </div>
         <div className="w-full flex flex-row items-center justify-center my-14">
@@ -150,20 +153,14 @@ export async function generateMetadata({
   }>
 }): Promise<Metadata> {
   const { slug } = await params
-  console.log('metadata1===', slug)
   const user = await getUser(slug)
   const fullName = user.fullName ? user.fullName + ' || ' : ''
-
-  //   const user.fullName = ''
-
-  console.log('metadata===', slug, user)
 
   const pageTitle = fullName + 'Archifolio'
   const pageDescription = user.fullName
     ? 'Explore the projects of' + fullName + 'on Archfolio'
     : 'Explore projects on Archfolio'
 
-  console.log('pageTitle===', pageTitle)
   return {
     description: pageDescription,
     title: pageTitle,

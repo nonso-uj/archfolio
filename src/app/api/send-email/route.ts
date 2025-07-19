@@ -17,8 +17,6 @@ export async function POST(req: Request) {
   })
 
   const htmlContent = formToEmail(values)
-  // console.log('htmlContent===', htmlContent)
-
   try {
     await transporter.sendMail({
       from: process.env.GMAIL_USER,

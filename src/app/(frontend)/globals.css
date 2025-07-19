@@ -136,9 +136,9 @@ body {
   scrollbar-width: none; /* Firefox */
 }
 
-.clamp-text {
-  font-size: clamp(3.5rem, 10vw, 6rem);
-}
+/* .clamp-text {
+  font-size: clamp(3.5rem, 70vw, 6rem);
+} */
 
 /* PARALLAX SCROLLER */
 

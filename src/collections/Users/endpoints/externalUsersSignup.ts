@@ -13,7 +13,7 @@ export const externalUsersSignup: Endpoint = {
       }
     } catch (error) {
       // swallow error, data is already empty object
-      console.log('User creation error: ', error)
+      // console.log('User creation error: ', error)
     }
     const { email, password, confirmPassword, username } = data
 
@@ -77,7 +77,6 @@ export const externalUsersSignup: Endpoint = {
 
       throw new APIError('Unable to create a user.', 400, null, true)
     } catch (e) {
-      console.log('user creation error===', e)
       throw new APIError(`Unable to create a user. ${e}`, 400, null, true)
     }
   },

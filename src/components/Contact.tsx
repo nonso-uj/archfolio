@@ -83,7 +83,6 @@ const Contact = ({ details, slug }: { details: any; slug: string }) => {
             'Content-Type': 'application/json',
           },
         })
-        console.log('response==', response)
         if (!response.ok) {
           throw new Error(`Error: Something went wrong, check your connection and try again`)
         }

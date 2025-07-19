@@ -16,7 +16,6 @@ export const deleteSlug: CollectionBeforeDeleteHook = async ({ id, req }) => {
 
   if (findUser.docs.length > 0 && req.user) {
     // @ts-ignore - selectedTenant will match DB ID type
-    console.log('runnnn===', findUser.docs[0].tenants?.[0].tenant.id)
     const userTenant = findUser.docs[0].tenants?.[0]
     if (userTenant) {
       try {
@@ -31,7 +30,6 @@ export const deleteSlug: CollectionBeforeDeleteHook = async ({ id, req }) => {
           req,
         })
 
-        console.log('tenant deleted===', deleteTenantAttempt)
       } catch (error) {
         throw new ValidationError({
           errors: [

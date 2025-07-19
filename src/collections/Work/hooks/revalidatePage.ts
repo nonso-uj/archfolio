@@ -20,8 +20,6 @@ export const revalidatePage: CollectionAfterChangeHook<Work> = async ({
       // @ts-ignore
       const path = tenantDoc.name ? `/${tenantDoc.name}/works` : ''
       const singlePath = tenantDoc.name ? `/${tenantDoc.name}/${doc.slug}` : ''
-      console.log('path===', path)
-      console.log('path===', singlePath)
 
       payload.logger.info(`Revalidating page at path: ${path}`)
       payload.logger.info(`Revalidating page at path: ${singlePath}`)

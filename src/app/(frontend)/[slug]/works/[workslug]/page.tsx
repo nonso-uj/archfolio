@@ -27,12 +27,16 @@ export default async function WorkPageView({
     notFound()
   }
 
+  const user = await getUser(slug || '')
+  const fullName = user.fullName ? user.fullName : 'Full Name'
+
   const images = pageBySlug || PICTURES_PLACEHOLDER
 
   return (
     <div className="relative bg-neutral-200">
       <NavBar
         userSlug={slug || ''}
+        fullName={fullName}
         extraClasses={'shrink-0 px-5 lg:px-14 text-black text-base lg:text-3xl'}
       />
 
@@ -50,13 +54,10 @@ export async function generateMetadata({
   }>
 }): Promise<Metadata> {
   const { slug, workslug } = await params
-  console.log('metadata1===', slug, workslug)
   const user = await getUser(slug)
   const getPageName = await getSingleWorkSlug({ slug, workslug })
   const pageName = getPageName?.title ? getPageName.title + ' || ' : ''
   const fullName = user.fullName ? user.fullName + ' || ' : ''
-
-  console.log('metadata===', slug, user)
 
   const pageTitle = pageName + fullName + 'Archifolio'
   const pageDescription = user.fullName

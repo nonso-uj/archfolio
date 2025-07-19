@@ -30,7 +30,6 @@ export const Users: CollectionConfig = {
       handler: async (req) => {
         // @ts-ignore
         const slug = (await req.routeParams.slug) || ''
-        console.log('called endpoint===', slug)
 
         if (slug) {
           const user = await req.payload.find({

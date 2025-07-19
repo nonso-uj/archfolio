@@ -23,7 +23,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="relative h-full">
         <ProgressBarProvider>
           {/* I.e. using Tailwind CSS to show the progress bar with custom styling */}
-          <ProgressBar className="fixed h-1 shadow-lg shadow-sky-500/20 bg-sky-500 top-0" />
+          <ProgressBar className="fixed h-1 shadow-lg shadow-sky-500/20 bg-sky-500 top-0 z-50" />
           <main className="custom-scroll font_regular">
             {children}
             <Toaster />
