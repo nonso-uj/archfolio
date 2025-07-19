@@ -101,7 +101,7 @@ export default function Signup() {
               name="username"
               ref={usernameRef}
               type="text"
-              className="w-full text-black h-10 p-2 rounded-lg"
+              className="w-full text-white h-10 p-2 rounded-lg"
             />
             <small className="text-xs text-yellow-500">
               Only lower case characters and hyphens(-)
@@ -113,7 +113,7 @@ export default function Signup() {
               name="email"
               ref={emailRef}
               type="email"
-              className="w-full text-black h-10 p-2 rounded-lg"
+              className="w-full text-white h-10 p-2 rounded-lg"
             />
           </div>
           <div className="w-full flex flex-col">
@@ -122,7 +122,7 @@ export default function Signup() {
               name="password"
               ref={passwordRef}
               type="password"
-              className="w-full text-black h-10 p-2 rounded-lg"
+              className="w-full text-white h-10 p-2 rounded-lg"
             />
           </div>
           <div className="w-full flex flex-col">
@@ -131,7 +131,7 @@ export default function Signup() {
               name="confirmPassword"
               ref={confirmPasswordRef}
               type="password"
-              className="w-full text-black h-10 p-2 rounded-lg"
+              className="w-full text-white h-10 p-2 rounded-lg"
             />
           </div>
 
