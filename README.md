@@ -1,5 +1,5 @@
 # Archfolio ✨  
-**Create and manage your own portfolio site in minutes. Built for architecture students, creatives, and anyone who wants to showcase their work — effortlessly.**
+**Create and manage your own portfolio site in minutes. Built for architecture students, creatives, and anyone who wants to showcase their work, effortlessly.**
 
 ![Archfolio Hero](./public/img/admin-screenshot.webp)
 
@@ -7,7 +7,7 @@
 
 ## 🚀 Overview
 
-**Archfolio** is a dynamic web-based platform designed to help students and design professionals create personalized portfolio websites — no coding required. With a clean dashboard, rich content editor, and mobile-optimized layouts, users can update their site in real-time and share a custom link with recruiters, collaborators, or the world.
+**Archfolio** is a dynamic web-based platform designed to help students and design professionals create personalized portfolio websites, no coding required. With a clean dashboard, rich content editor, and mobile-optimized layouts, users can update their site in real-time and share a custom link with recruiters, collaborators, or the world.
 
 This is a **full-stack web application** built with [Payload CMS 3.0](https://payloadcms.com), [Next.js 15](https://nextjs.org), and Tailwind CSS.
 
@@ -15,14 +15,14 @@ This is a **full-stack web application** built with [Payload CMS 3.0](https://pa
 
 ## 🧠 Features
 
-- 🌐 **Instant Portfolio Generation** — Just sign up, fill in your details, and your portfolio is live.
-- 🖼️ **Project & Bio Management** — Add and update work, education, and personal info with ease.
-- 📱 **Responsive & Mobile-Ready** — Designed to look great on every screen.
-- 🔐 **Secure Architecture** — Built using modern security practices; your data stays private.
-- 🛠️ **Powered by Payload CMS** — Headless CMS with a custom multi-tenant backend.
-- ☁️ **Image Hosting with Cloudinary** — Seamless media upload and rendering.
-- ✨ **Beautiful UI/UX** — Built with TailwindCSS, Framer Motion, and a focus on clean design.
-- 💬 **Email Integration** — Uses Nodemailer for user notifications.
+- 🌐 **Instant Portfolio Generation**, Just sign up, fill in your details, and your portfolio is live.
+- 🖼️ **Project & Bio Management**, Add and update work, education, and personal info with ease.
+- 📱 **Responsive & Mobile-Ready**, Designed to look great on every screen.
+- 🔐 **Secure Architecture**, Built using modern security practices; your data stays private.
+- 🛠️ **Powered by Payload CMS**, Headless CMS with a custom multi-tenant backend.
+- ☁️ **Image Hosting with Cloudinary**, Seamless media upload and rendering.
+- ✨ **Beautiful UI/UX**, Built with TailwindCSS, Framer Motion, and a focus on clean design.
+- 💬 **Email Integration**, Uses Nodemailer for user notifications.
 
 ---
 
