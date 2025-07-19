@@ -9,7 +9,7 @@
 
 **Archfolio** is a dynamic web-based platform designed to help students and design professionals create personalized portfolio websites, no coding required. With a clean dashboard, rich content editor, and mobile-optimized layouts, users can update their site in real-time and share a custom link with recruiters, collaborators, or the world.
 
-This is a **full-stack web application** built with [Payload CMS 3.0](https://payloadcms.com), [Next.js 15](https://nextjs.org), and Tailwind CSS.
+This is a **full-stack web application** built with [Payload CMS 3.0](https://payloadcms.com), [Next.js 15](https://nextjs.org), and [Tailwind CSS](https://tailwindcss.com).
 
 ---
 
